@@ -4,4 +4,5 @@ export class UrlsConfig {
     static addUser = baseUrl + '/user/add-user';
     static listUsers = baseUrl + '/user/list-user';
     static UpdateUser = baseUrl + '/user/edit-user';
+    static deleteUser = baseUrl + '/user/delete-user';
 }

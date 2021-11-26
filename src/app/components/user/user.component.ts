@@ -61,6 +61,11 @@ export class UserComponent implements OnInit {
     this.openDialog('edit_user');
   }
 
+  openDialogWithDeleteUser(user: UserModel) {
+    this.user = _.clone(user);
+    this.openDialog('delete_form');
+  }
+
   callApiToGetUsers() {
     axios.get(UrlsConfig.listUsers)
     .then(result => {
@@ -96,7 +101,22 @@ export class UserComponent implements OnInit {
     })
   }
   callApiToDeleteUser() {
-    console.log('deleting user');
+    const req = {
+      ...this.user
+    }
+    axios.post(UrlsConfig.deleteUser, req)
+    .then(result => {
+      if (!result.data.error) {
+        this.toastr.success(result.data.message);
+        this.callApiToGetUsers();
+        this.dialog.closeAll();
+      } else {
+        this.toastr.error(result.data.message);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
   callApiToEditUser() {
     if (!this.isFormValid()) {

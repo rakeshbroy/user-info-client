@@ -39,18 +39,18 @@
   
 </div>
 
-<!-- <div mat-dialog-content *ngIf="action === 'delete_form'">
+<div mat-dialog-content *ngIf="action === 'delete_form'">
   <div class="row">
     <div class="col my-2">
-      <p>Are you sure to delete this form?</p>
-      <div><b>Name:</b> {{form.formName}}</div>
+      <p>Are you sure to delete this user?</p>
+      <div><b>Name:</b> {{user.firstName}}</div>
     </div>
   </div>
-</div> -->
+</div>
 
 <div mat-dialog-actions class="mb-0">
   <button mat-raised-button color="primary" *ngIf="action === 'add_user'" (click)="onAddFormClick()">Add</button>
   <button mat-raised-button color="primary" *ngIf="action === 'edit_user'" (click)="onEditFormClick()">Save</button>
-  <!-- <button mat-raised-button color="primary" *ngIf="action === 'delete_form'" (click)="onDeleteFormClick()">Delete</button> -->
+  <button mat-raised-button color="primary" *ngIf="action === 'delete_form'" (click)="onDeleteFormClick()">Delete</button>
   <button mat-raised-button color="accent" (click)="onCancelClick()">Cancel</button>
 </div>
