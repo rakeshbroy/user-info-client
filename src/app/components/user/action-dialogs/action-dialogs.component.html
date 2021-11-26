@@ -1,0 +1,56 @@
+<h2 mat-dialog-title class="mb-1">{{title}}</h2>
+
+<div mat-dialog-content *ngIf="action === 'add_user' || action === 'edit_user'">
+  <div class="row">
+
+
+    <div class="col-12">
+      <mat-form-field>
+        <input type="text" matInput placeholder="First Name" [(ngModel)]="user.firstName">
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Last Name" [(ngModel)]="user.lastName">
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field>
+        <input type="email" matInput placeholder="Email" [(ngModel)]="user.email">
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Mobile" [(ngModel)]="user.mobile">
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field>
+        <input type="password" matInput [placeholder]="action === 'add_user' ? 'Password' : 'Old password'" [(ngModel)]="user.password">
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field>
+        <input type="password" matInput placeholder="Confirm Password" [(ngModel)]="user.confirmPassword">
+      </mat-form-field>
+    </div>
+
+  </div>
+  
+</div>
+
+<!-- <div mat-dialog-content *ngIf="action === 'delete_form'">
+  <div class="row">
+    <div class="col my-2">
+      <p>Are you sure to delete this form?</p>
+      <div><b>Name:</b> {{form.formName}}</div>
+    </div>
+  </div>
+</div> -->
+
+<div mat-dialog-actions class="mb-0">
+  <button mat-raised-button color="primary" *ngIf="action === 'add_user'" (click)="onAddFormClick()">Add</button>
+  <button mat-raised-button color="primary" *ngIf="action === 'edit_user'" (click)="onEditFormClick()">Save</button>
+  <!-- <button mat-raised-button color="primary" *ngIf="action === 'delete_form'" (click)="onDeleteFormClick()">Delete</button> -->
+  <button mat-raised-button color="accent" (click)="onCancelClick()">Cancel</button>
+</div>
